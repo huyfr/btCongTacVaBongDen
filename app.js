@@ -39,10 +39,19 @@ let switchButton=new SwitchButton();
 let electricLamp=new ElectricLamp();
 
 switchButton.connectToLamp(electricLamp);
-for (let i=0; i<10; i++)
+
+function changeStatus()
 {
-    switchButton.switchOn();
-    console.log(electricLamp.status);
-    switchButton.switchOff();
-    console.log(electricLamp.status);
+    if  (switchButton.status)
+    {
+        switchButton.switchOff();
+        console.log(electricLamp.status);
+        document.getElementById("on").src=0+".png";
+    }
+    else
+    {
+        switchButton.switchOn();
+        console.log(electricLamp.status);
+        document.getElementById("on").src=1+".png";
+    }
 }
